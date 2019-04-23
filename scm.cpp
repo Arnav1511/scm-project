@@ -254,3 +254,23 @@ void console(char* s)
 	window(40,18,75,22);
 	textcolor(WHITE);
 	textbackground(BLACK);
+
+	void studentDB()
+{
+	plus("Student DB");
+	int cr=0,tX=6,tY=7,flag=0;
+	char ch,option[6][30] = {"Add Record","Delete Record","View All","Search Record","Modify Record","Go Back"};
+	do
+	{
+		if(flag==0)
+		{
+			console("");
+			cr=0;
+			tX=6;
+			tY=7;
+			clear();
+			for(int i=0;i<6;i++)
+				setText(tX,tY+i,option[cr+i]);
+			cursor(tX,tY,option[cr]);
+			flag=1;
+		}
