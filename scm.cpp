@@ -152,3 +152,54 @@ void box(int x1,int y1,int x2,int y2)
 	for(i=x1;i<=x2;i++)
 	{
 		gotoxy(i,y1);
+
+		cout<<ch;
+		gotoxy(i,y2);
+		cout<<ch;
+	}
+	for(i=y1;i<=y2;i++)
+	{
+		gotoxy(x1,i);
+		cout<<ch;
+		gotoxy(x2,i);
+		cout<<ch;
+	}
+}
+
+void cursor(int x,int y, char* s)
+{
+	window(x,y,20+x,y);
+	textbackground(MAGENTA);
+	clrscr();
+	gotoxy(x+1,y);
+	puts(s);
+}
+
+void setNum(int x,int y, char* s,int n,COLORS c = BLUE,int size=24)
+{
+	window(x,y,x+size,y);
+	textbackground(c);
+	textcolor(BLACK);
+	clrscr();
+	gotoxy(x+1,y);
+	puts(s);
+	window(x+10,y,x+30,y);
+	gotoxy(x+10,y);
+	cout<<n;
+}
+
+void setText(int x,int y, char* s,COLORS c = BLUE,int size=24)
+{
+	window(x,y,x+size,y);
+	textbackground(c);
+	textcolor(BLACK);
+	clrscr();
+	gotoxy(x+1,y);
+	puts(s);
+}
+
+long getNum(int x, int y, char* s,COLORS c = BLUE)
+{
+	long n;
+	window(x,y,30+x,y);
+	textbackground(c);
