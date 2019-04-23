@@ -273,4 +273,33 @@ void console(char* s)
 				setText(tX,tY+i,option[cr+i]);
 			cursor(tX,tY,option[cr]);
 			flag=1;
-		}
+		
+		ch=getch();
+		switch(ch)
+		{
+			case 80:setText(tX,tY,option[cr]); //down key
+				if(cr==5)
+				{
+					cr=0;
+					tY-=5;
+				}
+				else
+				{
+					cr++;
+					tY++;
+				}
+				cursor(tX,tY,option[cr]);
+				break;
+			case 72:setText(tX,tY,option[cr]);  //up key
+				if(cr==0)
+				{
+					cr=5;
+					tY+=5;
+				}
+				else
+				{
+					cr--;
+					tY--;
+				}
+				cursor(tX,tY,option[cr]);
+				break;}
