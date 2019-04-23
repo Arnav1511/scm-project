@@ -303,3 +303,28 @@ void console(char* s)
 				}
 				cursor(tX,tY,option[cr]);
 				break;}
+
+		case 13:switch(cr+1)
+				{
+					case 1: clear();
+						SD_addRecord();
+						flag=0;
+						break;
+					case 2: SD_deleteRecord();
+						flag=0;
+						break;
+					case 3: SD_viewAll();
+						flag=0;
+						break;
+					case 4: SD_searchRecord();
+						flag=0;
+						break;
+					case 5: SD_modifyRecord();
+						flag=0;
+						break;
+					case 6: ch=27;
+				 }
+		}
+	} while(ch!=27);
+}
+
