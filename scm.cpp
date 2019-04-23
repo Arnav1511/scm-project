@@ -817,4 +817,34 @@ void Report()
 		}
 	} while(ch!=27);
 }
+void report:: displayData()
+{
+	init();
+	window(6,6,26,6);
+	cout<<"Admission num-> "<<admNo;
+	window(6,7,26,7);
+	gotoxy(6,7);
+	cout<<date<<"-"<<month<<"-"<<year<<"\t";
+	setText(6,8,res,WHITE);
+	getch();
+}
+
+void report:: inputData()
+{
+	init();
+	admNo = getNum(6,6,"Enter admission num-> ",WHITE);
+	setText(6,7,"Remarks/Reason (under 40 characters) -> ",WHITE);
+	getText(6,8,"",res,WHITE);
+	curDate(date,month,year);
+}
+
+void curDate(int &date, int&month, int&year)
+{
+	time_t t=time(0); // time right now
+	struct tm *now=localtime(&t);
+	year=(now->tm_year+1900);
+	month=(now->tm_mon+1);
+	date=(now->tm_mday);
+}
+
 
